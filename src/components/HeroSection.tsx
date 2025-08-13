@@ -1,99 +1,125 @@
-import { Download, Mail, Github, Linkedin, Sparkles, Zap, Code, Database } from 'lucide-react';
+import { Download, Mail, Github, Linkedin, BarChart3, TrendingUp, Database, Brain, PieChart } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 
 const HeroSection = () => {
   return (
-    <section id="home" className="min-h-screen flex items-center justify-center hero-modern">
-      {/* Floating geometric shapes */}
-      <div className="floating-shape">
-        <div className="w-32 h-32 rounded-full bg-white animate-pulse-slow"></div>
+    <section id="home" className="hero-lusion flex items-center justify-center">
+      {/* Data visualization elements */}
+      <div className="data-element">
+        <div className="w-16 h-16 border-2 border-primary/30 rounded-lg">
+          <BarChart3 size={40} className="text-primary/40 m-2" />
+        </div>
       </div>
-      <div className="floating-shape">
-        <div className="w-24 h-24 bg-white transform rotate-45 animate-spin-slow"></div>
+      <div className="data-element">
+        <div className="w-20 h-20 border border-accent/30 rounded-full flex items-center justify-center">
+          <PieChart size={32} className="text-accent/40" />
+        </div>
       </div>
-      <div className="floating-shape">
-        <div className="w-28 h-28 rounded-full bg-white animate-bounce-slow"></div>
+      <div className="data-element">
+        <div className="w-24 h-6 bg-primary/20 rounded-full relative overflow-hidden">
+          <div className="absolute inset-0 bg-gradient-to-r from-transparent via-primary/40 to-transparent animate-pulse"></div>
+        </div>
       </div>
-      <div className="floating-shape">
-        <div className="w-20 h-20 bg-white transform rotate-12 animate-float"></div>
+      <div className="data-element">
+        <div className="w-14 h-14 border-2 border-accent/30 rotate-45">
+          <Database size={24} className="text-accent/40 m-2 -rotate-45" />
+        </div>
+      </div>
+      <div className="data-element">
+        <div className="w-32 h-2 bg-gradient-to-r from-primary/20 via-accent/20 to-primary/20 rounded-full"></div>
       </div>
 
       <div className="container-width hero-content">
-        <div className="text-center text-white">
-          {/* Main content in glassmorphism card */}
-          <div className="glassmorphism p-12 md:p-16 max-w-4xl mx-auto animate-fade-in">
-            <div className="flex justify-center mb-8">
-              <div className="flex space-x-4 text-white/70">
-                <Database className="animate-bounce-slow" size={28} />
-                <Code className="animate-pulse-slow" size={28} />
-                <Zap className="animate-float" size={28} />
-                <Sparkles className="animate-bounce-slow" size={28} />
-              </div>
+        <div className="text-center">
+          <div className="max-w-6xl mx-auto animate-fade-in-up">
+            {/* Minimal tagline */}
+            <div className="mb-8">
+              <p className="text-muted-foreground text-lg tracking-wider uppercase">
+                Beyond Data — Within Insights
+              </p>
             </div>
             
-            <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold mb-6 animate-scale-in leading-tight">
-              <span className="bg-gradient-to-r from-white via-blue-100 to-cyan-100 bg-clip-text text-transparent">
-                Alekya Dakarapu
-              </span>
+            {/* Large, bold typography like Lusion */}
+            <h1 className="text-6xl md:text-8xl lg:text-9xl font-bold mb-8 leading-[0.9] tracking-tight">
+              <span className="block text-foreground">Alekya</span>
+              <span className="block text-primary">Dakarapu</span>
             </h1>
             
-            <div className="mb-8">
-              <p className="text-2xl md:text-3xl mb-4 text-white/90 font-light">
-                Data Analyst
+            {/* Data analyst description */}
+            <div className="mb-12">
+              <p className="text-xl md:text-2xl lg:text-3xl text-muted-foreground font-light leading-relaxed max-w-4xl mx-auto">
+                A data analyst who transforms complex datasets into 
+                <span className="text-accent font-medium"> strategic insights</span>, 
+                powering data-driven decisions through advanced analytics and visualization.
               </p>
-              <div className="flex flex-wrap justify-center gap-4 text-lg md:text-xl text-white/80">
-                <span className="px-4 py-2 bg-white/20 rounded-full backdrop-blur-sm">Python</span>
-                <span className="px-4 py-2 bg-white/20 rounded-full backdrop-blur-sm">SQL</span>
-                <span className="px-4 py-2 bg-white/20 rounded-full backdrop-blur-sm">Tableau</span>
-                <span className="px-4 py-2 bg-white/20 rounded-full backdrop-blur-sm">Machine Learning</span>
-              </div>
             </div>
             
-            <p className="text-lg md:text-xl mb-12 text-white/80 max-w-3xl mx-auto leading-relaxed">
-              Transforming complex data into <span className="text-cyan-200 font-medium">actionable insights</span> that drive 
-              strategic decision-making and organizational success.
-            </p>
+            {/* Tech stack - minimal badges */}
+            <div className="flex flex-wrap justify-center gap-3 mb-16">
+              <span className="px-6 py-3 bg-card border border-border rounded-full text-sm font-medium text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                Python
+              </span>
+              <span className="px-6 py-3 bg-card border border-border rounded-full text-sm font-medium text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                SQL
+              </span>
+              <span className="px-6 py-3 bg-card border border-border rounded-full text-sm font-medium text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                Tableau
+              </span>
+              <span className="px-6 py-3 bg-card border border-border rounded-full text-sm font-medium text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                Machine Learning
+              </span>
+              <span className="px-6 py-3 bg-card border border-border rounded-full text-sm font-medium text-foreground hover:bg-primary hover:text-primary-foreground transition-all duration-300">
+                Azure
+              </span>
+            </div>
             
-            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-12">
-              <Button size="lg" className="btn-primary px-10 py-6 text-lg font-medium group">
-                <Download className="mr-3 h-6 w-6 group-hover:animate-bounce" />
+            {/* Action buttons - minimal design */}
+            <div className="flex flex-col sm:flex-row gap-6 justify-center items-center mb-16">
+              <Button 
+                size="lg" 
+                className="px-12 py-6 text-lg font-medium bg-primary text-primary-foreground hover:bg-primary/90 rounded-full transition-all duration-300 hover:scale-105 animate-glow-pulse"
+              >
+                <Download className="mr-3 h-5 w-5" />
                 Download Resume
               </Button>
-              <Button size="lg" className="px-10 py-6 text-lg font-medium bg-white/20 text-white border-white/30 hover:bg-white/30 backdrop-blur-sm rounded-xl group">
-                <Mail className="mr-3 h-6 w-6 group-hover:animate-bounce" />
+              <Button 
+                size="lg" 
+                variant="outline"
+                className="px-12 py-6 text-lg font-medium border-border hover:bg-accent hover:text-accent-foreground rounded-full transition-all duration-300 hover:scale-105"
+              >
+                <Mail className="mr-3 h-5 w-5" />
                 Let's Connect
               </Button>
             </div>
             
-            <div className="flex justify-center space-x-8">
+            {/* Social links - clean and minimal */}
+            <div className="flex justify-center space-x-12">
               <a 
                 href="https://linkedin.com/in/alekyadakarapu" 
-                className="text-white/70 hover:text-white transition-all duration-300 hover:scale-125 p-3 rounded-full hover:bg-white/20"
+                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110 p-2"
               >
-                <Linkedin size={28} />
+                <Linkedin size={24} />
               </a>
               <a 
                 href="https://github.com/alekyadakarapu" 
-                className="text-white/70 hover:text-white transition-all duration-300 hover:scale-125 p-3 rounded-full hover:bg-white/20"
+                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110 p-2"
               >
-                <Github size={28} />
+                <Github size={24} />
               </a>
               <a 
                 href="mailto:dakarapualekya@gmail.com" 
-                className="text-white/70 hover:text-white transition-all duration-300 hover:scale-125 p-3 rounded-full hover:bg-white/20"
+                className="text-muted-foreground hover:text-primary transition-all duration-300 hover:scale-110 p-2"
               >
-                <Mail size={28} />
+                <Mail size={24} />
               </a>
             </div>
           </div>
           
-          {/* Scroll indicator */}
-          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-white/60 animate-bounce">
+          {/* Minimal scroll indicator */}
+          <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2 text-muted-foreground">
             <div className="flex flex-col items-center">
-              <span className="text-sm mb-2">Scroll to explore</span>
-              <div className="w-6 h-10 border-2 border-white/30 rounded-full flex justify-center">
-                <div className="w-1 h-3 bg-white/60 rounded-full mt-2 animate-pulse"></div>
-              </div>
+              <span className="text-sm mb-2 tracking-wider">scroll to explore</span>
+              <div className="w-px h-12 bg-border"></div>
             </div>
           </div>
         </div>

@@ -42,6 +42,8 @@
     --gradient-primary: linear-gradient(135deg, hsl(217 91% 60%), hsl(180 100% 70%));
     --gradient-secondary: linear-gradient(135deg, hsl(250 100% 99%), hsl(210 40% 96%));
     --gradient-hero: linear-gradient(135deg, hsl(217 91% 60%) 0%, hsl(180 100% 70%) 50%, hsl(240 100% 85%) 100%);
+    --gradient-hero-overlay: linear-gradient(135deg, hsl(217 91% 60% / 0.9) 0%, hsl(180 100% 70% / 0.8) 50%, hsl(240 100% 85% / 0.7) 100%);
+    --gradient-modern: radial-gradient(circle at 30% 20%, hsl(217 91% 60% / 0.3) 0%, transparent 50%), radial-gradient(circle at 80% 80%, hsl(180 100% 70% / 0.3) 0%, transparent 50%), radial-gradient(circle at 40% 40%, hsl(240 100% 85% / 0.2) 0%, transparent 50%);
     
     --shadow-elegant: 0 4px 20px -2px hsl(217 91% 60% / 0.1);
     --shadow-card: 0 2px 10px -1px hsl(215 25% 27% / 0.1);
@@ -117,8 +119,60 @@
 }
 
 @layer components {
-  .hero-gradient {
+  .hero-modern {
+    position: relative;
     background: var(--gradient-hero);
+    overflow: hidden;
+  }
+  
+  .hero-modern::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: var(--gradient-modern);
+    animation: float 6s ease-in-out infinite;
+  }
+  
+  .hero-content {
+    position: relative;
+    z-index: 10;
+  }
+  
+  .glassmorphism {
+    @apply backdrop-blur-xl bg-white/10 border border-white/20 rounded-3xl shadow-2xl;
+  }
+  
+  .floating-shape {
+    position: absolute;
+    opacity: 0.1;
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  .floating-shape:nth-child(1) {
+    top: 10%;
+    left: 10%;
+    animation-delay: 0s;
+  }
+  
+  .floating-shape:nth-child(2) {
+    top: 20%;
+    right: 10%;
+    animation-delay: 2s;
+  }
+  
+  .floating-shape:nth-child(3) {
+    bottom: 20%;
+    left: 20%;
+    animation-delay: 4s;
+  }
+  
+  .floating-shape:nth-child(4) {
+    bottom: 10%;
+    right: 20%;
+    animation-delay: 6s;
   }
   
   .card-elegant {

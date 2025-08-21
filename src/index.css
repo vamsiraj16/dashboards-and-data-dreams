@@ -119,6 +119,62 @@
 }
 
 @layer components {
+  /* Background Animations for Data Analyst Theme */
+  .data-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    overflow: hidden;
+  }
+
+  .data-stream {
+    position: absolute;
+    width: 2px;
+    height: 100px;
+    background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.3), transparent);
+    animation: data-stream-flow 8s linear infinite;
+  }
+
+  .data-stream:nth-child(1) { left: 10%; animation-delay: 0s; }
+  .data-stream:nth-child(2) { left: 25%; animation-delay: 2s; height: 80px; }
+  .data-stream:nth-child(3) { left: 40%; animation-delay: 4s; height: 120px; }
+  .data-stream:nth-child(4) { left: 60%; animation-delay: 1s; }
+  .data-stream:nth-child(5) { left: 75%; animation-delay: 3s; height: 90px; }
+  .data-stream:nth-child(6) { left: 90%; animation-delay: 5s; height: 110px; }
+
+  .floating-data-point {
+    position: absolute;
+    width: 6px;
+    height: 6px;
+    background: hsl(var(--accent) / 0.4);
+    border-radius: 50%;
+    animation: float-data-point 15s linear infinite;
+  }
+
+  .floating-data-point:nth-child(odd) {
+    background: hsl(var(--primary) / 0.3);
+    animation-duration: 12s;
+  }
+
+  .network-line {
+    position: absolute;
+    height: 1px;
+    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.2), transparent);
+    animation: network-pulse 6s ease-in-out infinite;
+  }
+
+  .math-symbol {
+    position: absolute;
+    font-family: 'Inter', monospace;
+    font-size: 14px;
+    color: hsl(var(--muted-foreground) / 0.1);
+    animation: math-float 20s linear infinite;
+  }
+
   .hero-lusion {
     position: relative;
     background: var(--gradient-hero);

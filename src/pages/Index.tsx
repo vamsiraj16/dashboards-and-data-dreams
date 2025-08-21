@@ -7,12 +7,14 @@ import ProjectsSection from '@/components/ProjectsSection';
 import EducationSection from '@/components/EducationSection';
 import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
+import DataBackground from '@/components/DataBackground';
 
 const Index = () => {
   console.log('Index component loading...');
   
   return (
-    <div className="min-h-screen">
+    <div className="min-h-screen relative">
+      <DataBackground />
       <Navigation />
       <HeroSection />
       <AboutSection />

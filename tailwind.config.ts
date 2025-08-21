@@ -78,7 +78,11 @@ export default {
 				'data-drift': 'data-drift 15s ease-in-out infinite',
 				'fade-in-up': 'fade-in-up 0.8s ease-out',
 				'scale-in': 'scale-in 0.6s ease-out',
-				'glow-pulse': 'glow-pulse 3s ease-in-out infinite'
+				'glow-pulse': 'glow-pulse 3s ease-in-out infinite',
+				'data-stream-flow': 'data-stream-flow 8s linear infinite',
+				'float-data-point': 'float-data-point 15s linear infinite',
+				'network-pulse': 'network-pulse 6s ease-in-out infinite',
+				'math-float': 'math-float 20s linear infinite'
 			},
 			keyframes: {
 				'accordion-down': {
@@ -147,6 +151,77 @@ export default {
 					},
 					'50%': {
 						boxShadow: '0 0 40px hsl(217 91% 60% / 0.6), 0 0 60px hsl(142 76% 36% / 0.3)'
+					}
+				},
+				'data-stream-flow': {
+					'0%': {
+						transform: 'translateY(-100vh)',
+						opacity: '0'
+					},
+					'10%': {
+						opacity: '1'
+					},
+					'90%': {
+						opacity: '1'
+					},
+					'100%': {
+						transform: 'translateY(100vh)',
+						opacity: '0'
+					}
+				},
+				'float-data-point': {
+					'0%': {
+						transform: 'translateY(100vh) translateX(0px)',
+						opacity: '0'
+					},
+					'10%': {
+						opacity: '1'
+					},
+					'50%': {
+						transform: 'translateY(50vh) translateX(20px)',
+						opacity: '0.6'
+					},
+					'90%': {
+						opacity: '1'
+					},
+					'100%': {
+						transform: 'translateY(-10vh) translateX(-10px)',
+						opacity: '0'
+					}
+				},
+				'network-pulse': {
+					'0%, 100%': {
+						opacity: '0.1',
+						transform: 'scaleX(0.8)'
+					},
+					'50%': {
+						opacity: '0.4',
+						transform: 'scaleX(1.2)'
+					}
+				},
+				'math-float': {
+					'0%': {
+						transform: 'translateY(100vh) translateX(0px) rotate(0deg)',
+						opacity: '0'
+					},
+					'5%': {
+						opacity: '0.8'
+					},
+					'25%': {
+						transform: 'translateY(75vh) translateX(30px) rotate(90deg)'
+					},
+					'50%': {
+						transform: 'translateY(50vh) translateX(-20px) rotate(180deg)'
+					},
+					'75%': {
+						transform: 'translateY(25vh) translateX(40px) rotate(270deg)'
+					},
+					'95%': {
+						opacity: '0.8'
+					},
+					'100%': {
+						transform: 'translateY(-10vh) translateX(-30px) rotate(360deg)',
+						opacity: '0'
 					}
 				}
 			}

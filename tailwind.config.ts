@@ -82,7 +82,14 @@ export default {
 				'data-stream-flow': 'data-stream-flow 8s linear infinite',
 				'float-data-point': 'float-data-point 15s linear infinite',
 				'network-pulse': 'network-pulse 6s ease-in-out infinite',
-				'math-float': 'math-float 20s linear infinite'
+				'math-float': 'math-float 20s linear infinite',
+				'skill-float': 'skill-float 3s ease-in-out infinite',
+				'counter-pop': 'counter-pop 0.6s ease-out',
+				'typing': 'typing 3.5s steps(40, end)',
+				'blink-caret': 'blink-caret 0.75s step-end infinite',
+				'progress-glow': 'progress-glow 2s ease-in-out infinite alternate',
+				'bounce-in': 'bounce-in 0.8s cubic-bezier(0.68, -0.55, 0.265, 1.55)',
+				'stagger-fade-in': 'stagger-fade-in 0.6s ease-out forwards'
 			},
 			keyframes: {
 				'accordion-down': {
@@ -222,6 +229,73 @@ export default {
 					'100%': {
 						transform: 'translateY(-10vh) translateX(-30px) rotate(360deg)',
 						opacity: '0'
+					}
+				},
+				'skill-float': {
+					'0%, 100%': {
+						transform: 'translateY(0px)'
+					},
+					'50%': {
+						transform: 'translateY(-5px)'
+					}
+				},
+				'counter-pop': {
+					'0%': {
+						transform: 'scale(0.8)',
+						opacity: '0'
+					},
+					'50%': {
+						transform: 'scale(1.1)'
+					},
+					'100%': {
+						transform: 'scale(1)',
+						opacity: '1'
+					}
+				},
+				'typing': {
+					'from': {
+						width: '0'
+					},
+					'to': {
+						width: '100%'
+					}
+				},
+				'blink-caret': {
+					'from, to': {
+						borderColor: 'transparent'
+					},
+					'50%': {
+						borderColor: 'hsl(var(--primary))'
+					}
+				},
+				'progress-glow': {
+					'0%': {
+						boxShadow: '0 0 5px hsl(var(--primary) / 0.5)'
+					},
+					'100%': {
+						boxShadow: '0 0 20px hsl(var(--primary) / 0.8), 0 0 30px hsl(var(--accent) / 0.6)'
+					}
+				},
+				'bounce-in': {
+					'0%': {
+						transform: 'scale(0.3)',
+						opacity: '0'
+					},
+					'50%': {
+						transform: 'scale(1.05)'
+					},
+					'70%': {
+						transform: 'scale(0.9)'
+					},
+					'100%': {
+						transform: 'scale(1)',
+						opacity: '1'
+					}
+				},
+				'stagger-fade-in': {
+					'to': {
+						opacity: '1',
+						transform: 'translateY(0)'
 					}
 				}
 			}

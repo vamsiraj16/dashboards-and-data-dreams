@@ -1,6 +1,9 @@
 import { Code, BarChart3, Settings } from 'lucide-react';
+import useScrollReveal from '@/hooks/useScrollReveal';
 
 const SkillsSection = () => {
+  const { ref: sectionRef, isVisible } = useScrollReveal(0.2);
+
   const skillCategories = [
     {
       icon: Code,
@@ -43,7 +46,10 @@ const SkillsSection = () => {
   return (
     <section id="skills" className="section-padding">
       <div className="container-width">
-        <div className="text-center mb-16">
+        <div 
+          ref={sectionRef}
+          className={`text-center mb-16 scroll-reveal ${isVisible ? 'revealed' : ''}`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">Skills & Expertise</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8"></div>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -53,7 +59,7 @@ const SkillsSection = () => {
 
         <div className="grid lg:grid-cols-3 gap-8">
           {skillCategories.map((category, index) => (
-            <div key={index} className="card-elegant p-8">
+            <div key={index} className="card-elegant p-8 interactive-card bounce-in" style={{ animationDelay: `${index * 0.2}s` }}>
               <div className="text-center mb-8">
                 <div className="bg-gradient-to-r from-primary to-accent p-4 rounded-full w-20 h-20 mx-auto mb-4 flex items-center justify-center">
                   <category.icon className="text-white" size={32} />
@@ -63,7 +69,11 @@ const SkillsSection = () => {
               
               <div className="space-y-3">
                 {category.skills.map((skill, skillIndex) => (
-                  <div key={skillIndex} className="skill-badge">
+                  <div 
+                    key={skillIndex} 
+                    className="skill-badge"
+                    style={{ animationDelay: `${(index * 0.2) + (skillIndex * 0.1)}s` }}
+                  >
                     {skill}
                   </div>
                 ))}

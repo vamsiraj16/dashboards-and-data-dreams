@@ -1,6 +1,9 @@
 import { Brain, Cloud, BarChart3, Users } from 'lucide-react';
+import useScrollReveal from '@/hooks/useScrollReveal';
 
 const ProjectsSection = () => {
+  const { ref: sectionRef, isVisible } = useScrollReveal(0.2);
+
   const projects = [
     {
       icon: Brain,
@@ -55,7 +58,10 @@ const ProjectsSection = () => {
   return (
     <section id="projects" className="section-padding">
       <div className="container-width">
-        <div className="text-center mb-16">
+        <div 
+          ref={sectionRef}
+          className={`text-center mb-16 scroll-reveal ${isVisible ? 'revealed' : ''}`}
+        >
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">Featured Projects</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8"></div>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
@@ -65,7 +71,7 @@ const ProjectsSection = () => {
 
         <div className="grid md:grid-cols-2 gap-8">
           {projects.map((project, index) => (
-            <div key={index} className="card-elegant p-8 group">
+            <div key={index} className="card-elegant p-8 group interactive-card bounce-in" style={{ animationDelay: `${index * 0.15}s` }}>
               <div className="flex items-center mb-6">
                 <div className="bg-gradient-to-r from-primary to-accent p-3 rounded-lg mr-4">
                   <project.icon className="text-white" size={24} />
@@ -95,7 +101,7 @@ const ProjectsSection = () => {
                 {project.techStack.map((tech, techIndex) => (
                   <span 
                     key={techIndex} 
-                    className="px-3 py-1 bg-secondary text-secondary-foreground text-xs rounded-full border border-border"
+                    className="px-3 py-1 bg-secondary text-secondary-foreground text-xs rounded-full border border-border hover:bg-primary hover:text-primary-foreground transition-all duration-300"
                   >
                     {tech}
                   </span>

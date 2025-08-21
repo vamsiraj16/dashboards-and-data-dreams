@@ -2,6 +2,8 @@ import { Download, Mail, Github, Linkedin, BarChart3, TrendingUp, Database, Brai
 import { Button } from '@/components/ui/button';
 
 const HeroSection = () => {
+  console.log('HeroSection loading...');
+  
   return (
     <section id="home" className="hero-lusion flex items-center justify-center">
       {/* Data visualization elements */}

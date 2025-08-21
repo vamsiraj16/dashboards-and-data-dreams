@@ -2,6 +2,8 @@ import { useState, useEffect } from 'react';
 import { Menu, X } from 'lucide-react';
 
 const Navigation = () => {
+  console.log('Navigation loading...');
+  
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 

@@ -9,6 +9,8 @@ import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
 const Index = () => {
+  console.log('Index component loading...');
+  
   return (
     <div className="min-h-screen">
       <Navigation />

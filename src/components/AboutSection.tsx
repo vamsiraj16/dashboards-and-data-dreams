@@ -38,35 +38,46 @@ const AboutSection = () => {
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8"></div>
         </div>
         
-        <div className="grid lg:grid-cols-2 gap-12 items-center">
-          <div>
-            <div className="bg-gradient-to-br from-primary to-accent p-1 rounded-2xl mb-8 w-64 h-64 mx-auto lg:mx-0 interactive-card">
-              <div className="bg-white rounded-2xl w-full h-full flex items-center justify-center">
-                <User size={120} className="text-primary" />
+        <div className="grid lg:grid-cols-3 gap-8 items-start">
+          <div className="lg:col-span-1">
+            <div className="bg-gradient-to-br from-primary to-accent p-1 rounded-2xl w-48 h-48 mx-auto interactive-card">
+              <div className="bg-card rounded-2xl w-full h-full flex items-center justify-center">
+                <User size={80} className="text-primary" />
               </div>
+            </div>
+            <div className="text-center mt-6">
+              <h3 className="font-bold text-xl mb-2">Data Analyst</h3>
+              <p className="text-muted-foreground text-sm">MSc Data Analytics</p>
+              <p className="text-muted-foreground text-sm">London Metropolitan University</p>
             </div>
           </div>
           
-          <div>
-            <p className="text-lg text-muted-foreground mb-8 leading-relaxed">
-              I'm a passionate data analyst with a Master's in Data Analytics from London Metropolitan University. 
-              With expertise in Python, SQL, and advanced visualization tools, I specialize in uncovering insights 
-              that drive strategic decision-making.
-            </p>
-            
-            <p className="text-lg text-muted-foreground mb-12 leading-relaxed">
-              My experience spans from teaching assistance with SEN students to implementing complex machine learning 
-              models and data pipelines in Azure. I thrive on turning data challenges into opportunities for growth.
-            </p>
-            
-            <div className="grid md:grid-cols-2 gap-6">
-              {highlights.map((item, index) => (
-                <div key={index} className={`card-elegant p-6 stagger-item interactive-card`}>
-                  <item.icon className="text-primary mb-4" size={40} />
-                  <h3 className="font-semibold text-lg mb-2">{item.title}</h3>
-                  <p className="text-muted-foreground text-sm">{item.description}</p>
-                </div>
-              ))}
+          <div className="lg:col-span-2">
+            <div className="space-y-6">
+              <div className="card-elegant p-6">
+                <h3 className="font-semibold text-lg mb-3 text-primary">About Me</h3>
+                <p className="text-muted-foreground leading-relaxed">
+                  Passionate data analyst specializing in transforming complex datasets into actionable business intelligence. 
+                  Expert in Python, SQL, and advanced visualization tools with experience spanning from teaching SEN students 
+                  to implementing ML models and data pipelines in Azure.
+                </p>
+              </div>
+              
+              <div className="grid md:grid-cols-2 gap-4">
+                {highlights.map((item, index) => (
+                  <div key={index} className={`card-elegant p-4 stagger-item interactive-card hover-scale`}>
+                    <div className="flex items-start gap-3">
+                      <div className="bg-primary/10 p-2 rounded-lg">
+                        <item.icon className="text-primary" size={24} />
+                      </div>
+                      <div>
+                        <h4 className="font-semibold text-sm mb-1">{item.title}</h4>
+                        <p className="text-muted-foreground text-xs">{item.description}</p>
+                      </div>
+                    </div>
+                  </div>
+                ))}
+              </div>
             </div>
           </div>
         </div>

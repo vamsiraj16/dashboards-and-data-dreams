@@ -66,46 +66,66 @@ const ExperienceSection = () => {
   };
 
   return (
-    <section id="experience" className="section-padding bg-secondary/30">
+    <section id="experience" className="section-padding bg-muted/30">
       <div className="container-width">
         <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">Experience</h2>
+          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-foreground">Experience Timeline</h2>
           <div className="w-20 h-1 bg-gradient-to-r from-primary to-accent mx-auto mb-8"></div>
           <p className="text-lg text-muted-foreground max-w-3xl mx-auto">
             Professional journey spanning education, technology, and data analytics
           </p>
         </div>
 
-        <div className="space-y-8">
-          {experiences.map((exp, index) => (
-            <div key={index} className="card-elegant p-8">
-              <div className="flex flex-col md:flex-row gap-6">
-                <div className="flex-shrink-0">
-                  <div className={`p-4 rounded-full bg-gradient-to-r from-primary/10 to-accent/10 ${getIconColor(exp.type)}`}>
-                    <exp.icon size={32} />
+        <div className="relative">
+          {/* Timeline line */}
+          <div className="absolute left-8 md:left-1/2 top-0 bottom-0 w-0.5 bg-gradient-to-b from-primary via-accent to-primary transform md:-translate-x-1/2"></div>
+          
+          <div className="space-y-12">
+            {experiences.map((exp, index) => (
+              <div key={index} className={`relative flex items-center ${
+                index % 2 === 0 ? 'md:flex-row' : 'md:flex-row-reverse'
+              }`}>
+                {/* Timeline dot */}
+                <div className="absolute left-8 md:left-1/2 w-4 h-4 bg-gradient-to-r from-primary to-accent rounded-full border-4 border-background transform md:-translate-x-1/2 z-10 animate-pulse"></div>
+                
+                {/* Content */}
+                <div className={`ml-16 md:ml-0 md:w-5/12 ${
+                  index % 2 === 0 ? 'md:pr-8' : 'md:pl-8'
+                }`}>
+                  <div className="card-elegant p-6 interactive-card hover-scale">
+                    <div className="flex items-center gap-4 mb-4">
+                      <div className={`p-3 rounded-xl bg-gradient-to-br from-primary/20 to-accent/20 ${getIconColor(exp.type)}`}>
+                        <exp.icon size={28} />
+                      </div>
+                      <div>
+                        <h3 className="text-xl font-bold text-foreground">{exp.title}</h3>
+                        <span className="text-sm text-muted-foreground bg-primary/10 px-3 py-1 rounded-full">
+                          {exp.company}
+                        </span>
+                      </div>
+                    </div>
+                    
+                    <div className="space-y-3">
+                      {exp.achievements.slice(0, 3).map((achievement, achIndex) => (
+                        <div key={achIndex} className="flex items-start gap-3 text-sm text-muted-foreground">
+                          <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
+                          <span>{achievement}</span>
+                        </div>
+                      ))}
+                      {exp.achievements.length > 3 && (
+                        <div className="text-xs text-primary font-medium">
+                          +{exp.achievements.length - 3} more achievements
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
                 
-                <div className="flex-grow">
-                  <div className="flex flex-col md:flex-row md:items-center md:justify-between mb-4">
-                    <h3 className="text-xl font-semibold text-foreground">{exp.title}</h3>
-                    <span className="text-sm text-muted-foreground bg-secondary px-3 py-1 rounded-full">
-                      {exp.company}
-                    </span>
-                  </div>
-                  
-                  <ul className="space-y-2">
-                    {exp.achievements.map((achievement, achIndex) => (
-                      <li key={achIndex} className="text-muted-foreground flex items-start">
-                        <span className="inline-block w-2 h-2 bg-primary rounded-full mr-3 mt-2 flex-shrink-0"></span>
-                        {achievement}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
+                {/* Empty space for alternating layout */}
+                <div className="hidden md:block md:w-5/12"></div>
               </div>
-            </div>
-          ))}
+            ))}
+          </div>
         </div>
       </div>
     </section>

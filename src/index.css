@@ -129,7 +129,10 @@
     pointer-events: none;
     z-index: -1;
     overflow: hidden;
-    background: radial-gradient(ellipse at center, hsl(var(--primary) / 0.02) 0%, transparent 70%);
+    background: 
+      radial-gradient(circle at 20% 80%, hsl(var(--primary) / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 80% 20%, hsl(var(--accent) / 0.08) 0%, transparent 50%),
+      radial-gradient(circle at 40% 40%, hsl(var(--primary) / 0.05) 0%, transparent 50%);
   }
 
   .data-background::before {
@@ -140,18 +143,25 @@
     width: 100%;
     height: 100%;
     background-image: 
-      linear-gradient(hsl(var(--primary) / 0.03) 1px, transparent 1px),
-      linear-gradient(90deg, hsl(var(--primary) / 0.03) 1px, transparent 1px);
-    background-size: 50px 50px;
-    animation: grid-move 20s linear infinite;
+      linear-gradient(hsl(var(--primary) / 0.08) 1px, transparent 1px),
+      linear-gradient(90deg, hsl(var(--primary) / 0.08) 1px, transparent 1px);
+    background-size: 60px 60px;
+    animation: grid-move 25s linear infinite;
+    opacity: 0.6;
   }
 
   .data-stream {
     position: absolute;
-    width: 2px;
-    height: 100px;
-    background: linear-gradient(to bottom, transparent, hsl(var(--primary) / 0.3), transparent);
-    animation: data-stream-flow 8s linear infinite;
+    width: 3px;
+    height: 120px;
+    background: linear-gradient(to bottom, 
+      transparent, 
+      hsl(var(--primary) / 0.6), 
+      hsl(var(--accent) / 0.8), 
+      transparent);
+    animation: data-stream-flow 6s linear infinite;
+    border-radius: 2px;
+    box-shadow: 0 0 10px hsl(var(--primary) / 0.5);
   }
 
   .data-stream:nth-child(1) { left: 10%; animation-delay: 0s; }
@@ -163,42 +173,51 @@
 
   .floating-data-point {
     position: absolute;
-    width: 6px;
-    height: 6px;
-    background: hsl(var(--accent) / 0.4);
+    width: 8px;
+    height: 8px;
+    background: hsl(var(--accent) / 0.7);
     border-radius: 50%;
-    animation: float-data-point 15s linear infinite;
+    animation: float-data-point 12s linear infinite;
+    box-shadow: 0 0 15px hsl(var(--accent) / 0.8);
   }
 
   .floating-data-point:nth-child(odd) {
-    background: hsl(var(--primary) / 0.3);
-    animation-duration: 12s;
+    background: hsl(var(--primary) / 0.6);
+    animation-duration: 10s;
+    box-shadow: 0 0 15px hsl(var(--primary) / 0.8);
   }
 
   .network-line {
     position: absolute;
-    height: 1px;
-    background: linear-gradient(90deg, transparent, hsl(var(--primary) / 0.2), transparent);
-    animation: network-pulse 6s ease-in-out infinite;
+    height: 2px;
+    background: linear-gradient(90deg, 
+      transparent, 
+      hsl(var(--primary) / 0.5), 
+      hsl(var(--accent) / 0.7), 
+      transparent);
+    animation: network-pulse 4s ease-in-out infinite;
+    border-radius: 1px;
+    box-shadow: 0 0 8px hsl(var(--primary) / 0.6);
   }
 
   .math-symbol {
     position: absolute;
     font-family: 'Inter', monospace;
-    font-size: 14px;
-    color: hsl(var(--muted-foreground) / 0.1);
+    font-size: 16px;
+    color: hsl(var(--primary) / 0.4);
     animation: math-float 20s linear infinite;
-    text-shadow: 0 0 10px hsl(var(--primary) / 0.3);
+    text-shadow: 0 0 15px hsl(var(--primary) / 0.6);
+    font-weight: 600;
   }
 
   .data-particle {
     position: absolute;
-    width: 2px;
-    height: 2px;
-    background: hsl(var(--accent) / 0.6);
+    width: 4px;
+    height: 4px;
+    background: hsl(var(--accent) / 0.8);
     border-radius: 50%;
-    animation: particle-float 15s linear infinite;
-    box-shadow: 0 0 6px hsl(var(--accent) / 0.8);
+    animation: particle-float 12s linear infinite;
+    box-shadow: 0 0 12px hsl(var(--accent) / 1);
   }
 
   .hero-lusion {

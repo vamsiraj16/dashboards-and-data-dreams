@@ -1,6 +1,6 @@
 import { User, Target, BarChart3, Brain } from 'lucide-react';
 import useScrollReveal from '@/hooks/useScrollReveal';
-import profileImage from '@/assets/profile-image.jpg';
+import profileImage from '/lovable-uploads/a5d171a7-85ff-4ee1-9577-eb7bb4c23cc1.png';
 
 const AboutSection = () => {
   const { ref: sectionRef, isVisible } = useScrollReveal(0.2);

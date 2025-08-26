@@ -1,10 +1,10 @@
 const DataBackground = () => {
   // Generate random positions for floating data points
-  const dataPoints = Array.from({ length: 12 }, (_, i) => ({
+  const dataPoints = Array.from({ length: 18 }, (_, i) => ({
     id: i,
     left: Math.random() * 90 + 5, // 5% to 95%
-    delay: Math.random() * 15, // 0 to 15s delay
-    size: Math.random() * 4 + 3, // 3px to 7px
+    delay: Math.random() * 12, // 0 to 12s delay
+    size: Math.random() * 6 + 4, // 4px to 10px
   }));
 
   // Generate network connection lines
@@ -38,6 +38,8 @@ const DataBackground = () => {
   return (
     <div className="data-background">
       {/* Vertical Data Streams */}
+      <div className="data-stream"></div>
+      <div className="data-stream"></div>
       <div className="data-stream"></div>
       <div className="data-stream"></div>
       <div className="data-stream"></div>

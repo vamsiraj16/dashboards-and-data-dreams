@@ -1,6 +1,8 @@
-import { Briefcase, Users, Code2, GraduationCap } from 'lucide-react';
+import { Briefcase, Users, Code2, GraduationCap, ChevronDown, ChevronUp } from 'lucide-react';
+import { useState } from 'react';
 
 const ExperienceSection = () => {
+  const [expandedCard, setExpandedCard] = useState<number | null>(null);
   const experiences = [
     {
       icon: Briefcase,
@@ -106,16 +108,29 @@ const ExperienceSection = () => {
                     </div>
                     
                     <div className="space-y-3">
-                      {exp.achievements.slice(0, 3).map((achievement, achIndex) => (
+                      {(expandedCard === index ? exp.achievements : exp.achievements.slice(0, 3)).map((achievement, achIndex) => (
                         <div key={achIndex} className="flex items-start gap-3 text-sm text-muted-foreground">
                           <div className="w-1.5 h-1.5 bg-primary rounded-full mt-2 flex-shrink-0"></div>
                           <span>{achievement}</span>
                         </div>
                       ))}
                       {exp.achievements.length > 3 && (
-                        <div className="text-xs text-primary font-medium">
-                          +{exp.achievements.length - 3} more achievements
-                        </div>
+                        <button
+                          onClick={() => setExpandedCard(expandedCard === index ? null : index)}
+                          className="flex items-center gap-2 text-xs text-primary font-medium hover:text-primary/80 transition-colors mt-2"
+                        >
+                          {expandedCard === index ? (
+                            <>
+                              <ChevronUp size={14} />
+                              Show less
+                            </>
+                          ) : (
+                            <>
+                              <ChevronDown size={14} />
+                              +{exp.achievements.length - 3} more achievements
+                            </>
+                          )}
+                        </button>
                       )}
                     </div>
                   </div>

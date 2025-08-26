@@ -297,6 +297,28 @@ export default {
 						opacity: '1',
 						transform: 'translateY(0)'
 					}
+				},
+				'grid-move': {
+					'0%': { transform: 'translate(0, 0)' },
+					'100%': { transform: 'translate(50px, 50px)' }
+				},
+				'particle-float': {
+					'0%': {
+						transform: 'translateY(100vh) translateX(0) scale(0)',
+						opacity: '0'
+					},
+					'10%': {
+						opacity: '1',
+						transform: 'translateY(90vh) translateX(10px) scale(1)'
+					},
+					'90%': {
+						opacity: '1',
+						transform: 'translateY(10vh) translateX(-10px) scale(1)'
+					},
+					'100%': {
+						transform: 'translateY(0) translateX(0) scale(0)',
+						opacity: '0'
+					}
 				}
 			}
 		}

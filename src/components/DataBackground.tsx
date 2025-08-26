@@ -27,6 +27,14 @@ const DataBackground = () => {
     fontSize: Math.random() * 6 + 12, // 12px to 18px
   }));
 
+  // Floating data particles
+  const dataParticles = Array.from({ length: 20 }, (_, i) => ({
+    id: i,
+    left: Math.random() * 100, // 0% to 100%
+    delay: Math.random() * 15, // 0 to 15s delay
+    duration: Math.random() * 10 + 15, // 15s to 25s
+  }));
+
   return (
     <div className="data-background">
       {/* Vertical Data Streams */}
@@ -78,6 +86,19 @@ const DataBackground = () => {
         >
           {math.symbol}
         </div>
+      ))}
+
+      {/* Floating Data Particles */}
+      {dataParticles.map((particle) => (
+        <div
+          key={particle.id}
+          className="data-particle"
+          style={{
+            left: `${particle.left}%`,
+            animationDelay: `${particle.delay}s`,
+            animationDuration: `${particle.duration}s`,
+          }}
+        />
       ))}
     </div>
   );

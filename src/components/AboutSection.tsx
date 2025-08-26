@@ -1,5 +1,6 @@
 import { User, Target, BarChart3, Brain } from 'lucide-react';
 import useScrollReveal from '@/hooks/useScrollReveal';
+import profileImage from '@/assets/profile-image.jpg';
 
 const AboutSection = () => {
   const { ref: sectionRef, isVisible } = useScrollReveal(0.2);
@@ -40,9 +41,13 @@ const AboutSection = () => {
         
         <div className="grid lg:grid-cols-3 gap-8 items-start">
           <div className="lg:col-span-1">
-            <div className="bg-gradient-to-br from-primary to-accent p-1 rounded-2xl w-48 h-48 mx-auto interactive-card">
-              <div className="bg-card rounded-2xl w-full h-full flex items-center justify-center">
-                <User size={80} className="text-primary" />
+            <div className="bg-gradient-to-br from-primary to-accent p-1 rounded-2xl w-48 h-48 mx-auto interactive-card hover-scale">
+              <div className="bg-card rounded-2xl w-full h-full overflow-hidden">
+                <img 
+                  src={profileImage} 
+                  alt="Professional Data Analyst Profile" 
+                  className="w-full h-full object-cover transition-transform duration-300 hover:scale-110"
+                />
               </div>
             </div>
             <div className="text-center mt-6">
